@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIS E-Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-display {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+    }
+    
+    .font-body {
+      font-family: 'Space Mono', 'Courier New', monospace;
+    }
+    
+    .section-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .section-card:hover {
+      transform: translateY(-4px);
+    }
+    
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease;
+    }
+    
+    .section-content.expanded {
+      max-height: 800px;
+    }
+    
+    .chevron {
+      transition: transform 0.3s ease;
+    }
+    
+    .chevron.rotated {
+      transform: rotate(180deg);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #ec4899 0%, #a855f7 50%, #d946ef 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-pattern {
+      background-color: #0a0e27;
+      background-image: 
+        radial-gradient(at 20% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(168, 85, 247, 0.03) 2px, rgba(168, 85, 247, 0.03) 4px);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .animate-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .animate-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .animate-delay-4 { animation-delay: 0.4s; opacity: 0; }
+    .animate-delay-5 { animation-delay: 0.5s; opacity: 0; }
+    .animate-delay-6 { animation-delay: 0.6s; opacity: 0; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-slate-900 text-slate-100">
+  <div class="app-wrapper h-full overflow-auto"><!-- Hero Section -->
+   <header class="hero-pattern min-h-[60%] flex flex-col items-center justify-center px-6 py-16 text-center border-b-2 border-fuchsia-500/30">
+    <div class="max-w-3xl mx-auto">
+     <p class="text-sm uppercase tracking-[0.3em] text-fuchsia-400 mb-4 font-medium">// Technology &amp; Information Systems</p>
+     <h1 id="hero-name" class="font-display text-5xl md:text-6xl lg:text-7xl font-bold gradient-text mb-6 leading-tight">Your Full Name</h1>
+     <p id="hero-education" class="text-xl md:text-2xl text-slate-300 font-light mb-4">Bachelor of Computer Science (Software Engineering)</p>
+     <p id="hero-tagline" class="text-lg text-fuchsia-400/80 font-mono">&gt; Exploring technology through industry experiences_</p>
+     <div class="mt-10">
+      <svg class="w-6 h-6 mx-auto text-fuchsia-400 animate-bounce" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+     </div>
+    </div>
+   </header><!-- Portfolio Sections -->
+   <main class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="font-display text-3xl md:text-4xl font-semibold text-center mb-4 text-fuchsia-400">$ cat portfolio.sections</h2>
+    <p class="text-center text-slate-400 mb-12 font-mono">// Click on each section to view reflections and resources</p>
+    <div class="space-y-4" id="sections-container"><!-- Industrial Visit 1 -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-pink-500/30 overflow-hidden animate-fade-in animate-delay-1 hover:border-pink-400/60"><button onclick="toggleSection('iv1')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/30 font-mono font-bold text-xl">
+         01
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">Industrial_Visit_1</h3>
+         <p class="text-sm text-pink-400/80">// First industry exploration</p>
+        </div>
+       </div>
+       <svg id="chevron-iv1" class="chevron w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-iv1" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-pink-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about Industrial Visit 1 here. Describe what you learned, the company you visited, and key takeaways from the experience.</p><a href="https://drive.google.com/drive/folders/1AmlFl6yY-BzNO4cRjFwgMBajpD1lGXvp?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Company Visit Report </a>
+       </div>
+      </div>
+     </div><!-- Industrial Visit 2 -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-fuchsia-500/30 overflow-hidden animate-fade-in animate-delay-2 hover:border-fuchsia-400/60"><button onclick="toggleSection('iv2')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-fuchsia-500/30 font-mono font-bold text-xl">
+         02
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">Industrial_Visit_2</h3>
+         <p class="text-sm text-fuchsia-400/80">// Second industry exploration</p>
+        </div>
+       </div>
+       <svg id="chevron-iv2" class="chevron w-5 h-5 text-fuchsia-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-iv2" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-fuchsia-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about Industrial Visit 2 here. Share insights about the second company visit and compare experiences.</p><a href="https://drive.google.com/drive/folders/1ya5Xsd-IrJPtm6H73vcjTc1OXoyU50A-?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-fuchsia-400 hover:text-fuchsia-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Industry Insights </a>
+       </div>
+      </div>
+     </div><!-- PC Assemble Lab -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-purple-500/30 overflow-hidden animate-fade-in animate-delay-3 hover:border-purple-400/60"><button onclick="toggleSection('pclab')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/30 font-mono font-bold text-xl">
+         03
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">PC_Assemble_Lab</h3>
+         <p class="text-sm text-purple-400/80">// Hands-on hardware experience</p>
+        </div>
+       </div>
+       <svg id="chevron-pclab" class="chevron w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-pclab" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-purple-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about the PC Assemble Lab here. Describe the components you worked with, challenges faced, and technical skills gained.</p><a href="https://drive.google.com/drive/folders/1tywj0ZD_pe4kJ9-gmNfJsbOYNza-Lk1_?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Hardware Assembly Guide </a>
+       </div>
+      </div>
+     </div><!-- Industrial Talk 1 -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-violet-500/30 overflow-hidden animate-fade-in animate-delay-4 hover:border-violet-400/60"><button onclick="toggleSection('it1')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-violet-500/30 font-mono font-bold text-xl">
+         04
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">Industrial_Talk_1</h3>
+         <p class="text-sm text-violet-400/80">// First professional seminar</p>
+        </div>
+       </div>
+       <svg id="chevron-it1" class="chevron w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-it1" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-violet-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about Industrial Talk 1 here. Discuss the speaker, topic covered, and insights gained from the session.</p><a href="https://drive.google.com/drive/folders/1ZM8kmyWDAoZU92W6L1MCJHFEodoeyzQR?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Speaker Presentation </a>
+       </div>
+      </div>
+     </div><!-- Industrial Talk 2 -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-pink-500/30 overflow-hidden animate-fade-in animate-delay-5 hover:border-pink-400/60"><button onclick="toggleSection('it2')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/30 font-mono font-bold text-xl">
+         05
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">Industrial_Talk_2</h3>
+         <p class="text-sm text-pink-400/80">// Second professional seminar</p>
+        </div>
+       </div>
+       <svg id="chevron-it2" class="chevron w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-it2" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-pink-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about Industrial Talk 2 here. Compare with the first talk and highlight new perspectives gained.</p><a href="https://drive.google.com/drive/folders/1B2vdxTgTyEBBCgAfp1tRyQAEGO4s_92P?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Seminar Summary </a>
+       </div>
+      </div>
+     </div><!-- Design Thinking Project -->
+     <div class="section-card bg-slate-800 rounded-xl shadow-lg border-2 border-fuchsia-500/30 overflow-hidden animate-fade-in animate-delay-6 hover:border-fuchsia-400/60"><button onclick="toggleSection('dtp')" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-slate-700/50 transition-colors">
+       <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-fuchsia-500 to-pink-600 flex items-center justify-center text-white shadow-lg shadow-fuchsia-500/30 font-mono font-bold text-xl">
+         06
+        </div>
+        <div>
+         <h3 class="font-semibold text-lg text-slate-100 font-mono">Design_Thinking_Project</h3>
+         <p class="text-sm text-fuchsia-400/80">// Innovation &amp; problem solving</p>
+        </div>
+       </div>
+       <svg id="chevron-dtp" class="chevron w-5 h-5 text-fuchsia-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+       </svg></button>
+      <div id="content-dtp" class="section-content">
+       <div class="px-6 pb-6 pt-2 border-t border-fuchsia-500/20 bg-slate-800/50">
+        <h4 class="font-semibold text-fuchsia-400 mb-3 font-mono">console.log("reflection");</h4>
+        <p class="text-slate-300 leading-relaxed mb-4">Add your reflection about the Design Thinking Project here. Describe your problem statement, ideation process, prototype, and lessons learned.</p><a href="https://drive.google.com/drive/folders/1Igcm3ZrvHDAGsweW3j_3qhFHPUuq6i-K?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-fuchsia-400 hover:text-fuchsia-300 hover:underline transition-colors font-mono">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+         </svg> → View Project Portfolio </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="text-center py-8 px-6 border-t-2 border-fuchsia-500/30 bg-slate-800">
+    <p class="text-fuchsia-400 text-sm font-mono">// TIS E-Portfolio © 2024</p>
+    <p class="text-slate-500 text-xs mt-1 font-mono">Technology &amp; Information Systems</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      full_name: 'Your Full Name',
+      education: 'Bachelor of Computer Science (Software Engineering)',
+      tagline: 'Exploring technology through industry experiences'
+    };
+
+    function toggleSection(sectionId) {
+      const content = document.getElementById(`content-${sectionId}`);
+      const chevron = document.getElementById(`chevron-${sectionId}`);
+      
+      content.classList.toggle('expanded');
+      chevron.classList.toggle('rotated');
+    }
+
+    async function onConfigChange(config) {
+      const nameEl = document.getElementById('hero-name');
+      const eduEl = document.getElementById('hero-education');
+      const taglineEl = document.getElementById('hero-tagline');
+      
+      if (nameEl) nameEl.textContent = config.full_name || defaultConfig.full_name;
+      if (eduEl) eduEl.textContent = config.education || defaultConfig.education;
+      if (taglineEl) taglineEl.textContent = config.tagline || defaultConfig.tagline;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['full_name', config.full_name || defaultConfig.full_name],
+        ['education', config.education || defaultConfig.education],
+        ['tagline', config.tagline || defaultConfig.tagline]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bffb207f58d1be4',t:'MTc2ODc1NjExOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
